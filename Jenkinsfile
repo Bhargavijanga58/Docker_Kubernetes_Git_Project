@@ -23,9 +23,18 @@ pipeline{
       }
     }
   }
+	stage("deploying on k8")
+	{
+		steps{
+			sh 'kubectl set image deployement/googlecluster container-0=nidhish98/studentsurvey645:latest -n default'
+			sh 'kubectl rollout restart deploy googlecluster -n default'
+		}
+	}
   post {
 	  always {
 			sh 'docker logout'
 		}
-	}    
+	}  
+	
+
 }
