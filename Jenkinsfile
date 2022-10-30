@@ -1,8 +1,7 @@
-
 pipeline{
     agent any
     environment {
-		DOCKERHUB_CREDENTIALS=credentials('docker-pass')
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
 	}
   stages{
     stage('Build') {
@@ -22,12 +21,15 @@ pipeline{
         sh 'docker push nidhish98/studentsurvey645:latest'
       }
     }
-    stage("Deploy image to deployment in cluster"){
-      steps {
-        sh 'kubectl set image deployment/hello-app studentsurvey645=nidhish98/studentsurvey645:latest -n jenkins-pipeline'
-      }
-    }  
+        stage("deploying on k8")
+	{
+		steps{
+			sh 'kubectl set image deployment/amazon2image container-0=nidhish98/studentsurvey645:latest -n default'
+			sh 'kubectl rollout restart deploy amazon2image -n default'
+		}
+	} 
   }
+ 
   post {
 	  always {
 			sh 'docker logout'
