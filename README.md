@@ -1,7 +1,6 @@
 <p align="left" >
   <img src="https://cdn.worldvectorlogo.com/logos/docker.svg" alt="Docker Logo"  width="100" height="100">
 </p>
-
 <p align="center" >
   <img src="https://1000logos.net/wp-content/uploads/2022/07/Kubernetes-Logo.jpg" alt="Docker Logo"  width="450" height="250">
 </p>
