@@ -1,4 +1,4 @@
-<p align="center" >
+<p align="left" >
   <img src="https://cdn.worldvectorlogo.com/logos/docker.svg" alt="Docker Logo"  width="300" height="200">
 </p>
 
